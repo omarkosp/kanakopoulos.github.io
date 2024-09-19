@@ -28,6 +28,25 @@
       color: #ffffff; /* Change the text color to white */
       margin-top: 20px;
     }
+
+    /* Style for the boxes */
+    .box-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+      gap: 20px;
+    }
+
+    .box {
+      width: 150px;
+      height: 150px;
+      background-color: #d3d3d3; /* Light grey background */
+      border: 2px solid black; /* Black outline */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: black;
+    }
   </style>
 </head>
 <body>
@@ -38,6 +57,13 @@
   <h1>Κανακόπουλος</h1>
 
   <p style="color: #ffffff;">This is a sample page with my custom logo and color scheme.</p>
+
+  <!-- Container for the boxes -->
+  <div class="box-container">
+    <div class="box">Box 1</div>
+    <div class="box">Box 2</div>
+    <div class="box">Box 3</div>
+  </div>
 
 </body>
 </html>
