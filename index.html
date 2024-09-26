@@ -138,10 +138,11 @@
     </div>
   </div>
 <script src="script.js"></script> <!-- Link to your JavaScript file -->
-<form id="uploadForm" enctype="multipart/form-data">
+<form id="uploadForm" enctype="multipart/form-data" method="POST" action="https://us-central1-kanakopoulos.cloudfunctions.net/function-1">
     <input type="file" name="file" required>
     <button type="submit">Upload File</button>
 </form>
+
 
 </body>
 </html>
