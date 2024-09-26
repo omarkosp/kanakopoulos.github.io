@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My GitHub Page</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/@google-cloud/storage/5.8.2/index.min.js"></script>
 
   <style>
     body {
@@ -117,12 +116,13 @@
   <p style="color: #ffffff;">This is a sample page with my custom logo and color scheme.</p>
 
   <!-- Container for the boxes -->
- <div class="box-container">
-<div class="box box1" style="display: flex; justify-content: center; align-items: center;">
-  <div class="box4" style="width: 50%; height: 50%; background-color: #a9a9a9; border: 2px solid black; display: flex; justify-content: center; align-items: center;">
-    <button class="upload-button" style="position: absolute; top: 300px; left: 48%; transform: translateX(-50%);">Upload Here</button>
-  </div>
-</div>
+  <div class="box-container">
+    <div class="box box1" style="display: flex; justify-content: center; align-items: center;">
+      <div class="box4" style="width: 50%; height: 50%; background-color: #a9a9a9; border: 2px solid black; display: flex; justify-content: center; align-items: center;">
+        <input type="file" id="fileInput" style="display: none;">
+        <button class="upload-button" onclick="document.getElementById('fileInput').click();" style="position: absolute; top: 300px; left: 48%; transform: translateX(-50%);">Upload Here</button>
+      </div>
+    </div>
 
     <div class="box box2">
       <div class="small-boxes">
@@ -133,17 +133,21 @@
         <div class="small-box">20x30cm</div>
       </div>
     </div>
+    
     <div class="box box3">
       <button>Για περισσότερες πληροφορίες παρακαλώ επικοινωνήστε τηλεφωνικά μαζί μας.</button>
     </div>
   </div>
-<script src="script.js"></script> <!-- Link to your JavaScript file -->
-<form id="uploadForm" enctype="multipart/form-data" method="POST" action="https://us-central1-kanakopoulos.cloudfunctions.net/function-1">
-    <input type="file" name="file" required>
-    <button type="submit">Upload File</button>
-</form>
 
+  <script>
+    document.getElementById('fileInput').addEventListener('change', function(event) {
+      const file = event.target.files[0];
+      if (file) {
+        alert(`You selected: ${file.name}`);
+        // You can implement further logic here for processing the file if needed
+      }
+    });
+  </script>
 
 </body>
 </html>
-
