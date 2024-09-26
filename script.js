@@ -9,7 +9,7 @@ const storage = new Storage({
 
 // Function to upload a file to Google Cloud Storage
 async function uploadFile(fileName) {
-    await storage.bucket('YOUR_BUCKET_NAME').upload(fileName);
+    await storage.bucket('photoskanakopoulos').upload(fileName);
     console.log(`${fileName} uploaded to ${YOUR_BUCKET_NAME}.`);
 }
 document.getElementById('uploadForm').addEventListener('submit', async (event) => {
