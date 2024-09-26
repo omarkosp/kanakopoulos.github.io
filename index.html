@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My GitHub Page</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/@google-cloud/storage/5.8.2/index.min.js"></script>
+
   <style>
     body {
       margin: 0;
@@ -29,23 +31,79 @@
       margin-top: 20px;
     }
 
-    /* Style for the boxes */
+    /* Container for the boxes */
     .box-container {
-      display: flex;
-      justify-content: center;
-      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(2, auto); /* Two columns with automatic width */
       gap: 20px;
+      justify-content: center; /* Center the grid items */
+      margin-top: 30px;
     }
 
     .box {
-      width: 150px;
-      height: 150px;
       background-color: #d3d3d3; /* Light grey background */
       border: 2px solid black; /* Black outline */
       display: flex;
+      flex-direction: column; /* Stack children vertically */
       justify-content: center;
       align-items: center;
       color: black;
+      position: relative; /* Position relative for button alignment */
+    }
+
+    /* Make Box 1 twice as big */
+    .box1 {
+      width: 400px; /* Twice the width */
+      height: 400px; /* Twice the height */
+    }
+
+    /* Double the height of Box 2 */
+    .box2 {
+      width: 300px;
+      height: 400px; /* Double the height */
+    }
+
+    /* Box 3 below Box 1 */
+    .box3 {
+      width: 780px;
+      height: 150px;
+      grid-column: 1 / span 2; /* Span both columns to be centered under Box 1 */
+      margin-top: 20px; /* Space above the box */
+    }
+
+    /* Style for the buttons */
+    .box button {
+      background-color: #4CAF50; /* Green background */
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 10px;
+      cursor: pointer;
+      border-radius: 5px; /* Rounded corners */
+    }
+
+    .box button:hover {
+      background-color: #45a049; /* Darker green on hover */
+    }
+
+    /* Styles for small boxes */
+    .small-boxes {
+      display: flex;
+      flex-direction: column; /* Stack the small boxes vertically */
+      margin-top: 15px; /* Space above the small boxes */
+    }
+
+    .small-box {
+      background-color: #ffffff; /* White background for small boxes */
+      border: 1px solid #000; /* Black border */
+      padding: 10px;
+      margin: 5px 0; /* Space between small boxes */
+      text-align: center; /* Center text inside the small boxes */
+      border-radius: 5px; /* Rounded corners */
     }
   </style>
 </head>
@@ -59,11 +117,32 @@
   <p style="color: #ffffff;">This is a sample page with my custom logo and color scheme.</p>
 
   <!-- Container for the boxes -->
-  <div class="box-container">
-    <div class="box">Box 1</div>
-    <div class="box">Box 2</div>
-    <div class="box">Box 3</div>
+ <div class="box-container">
+<div class="box box1" style="display: flex; justify-content: center; align-items: center;">
+  <div class="box4" style="width: 50%; height: 50%; background-color: #a9a9a9; border: 2px solid black; display: flex; justify-content: center; align-items: center;">
+    <button class="upload-button" style="position: absolute; top: 300px; left: 48%; transform: translateX(-50%);">Upload Here</button>
   </div>
+</div>
+
+    <div class="box box2">
+      <div class="small-boxes">
+        <div class="small-box">10x15cm</div>
+        <div class="small-box">13x18cm</div>
+        <div class="small-box">15x21cm</div>
+        <div class="small-box">20x25cm</div>
+        <div class="small-box">20x30cm</div>
+      </div>
+    </div>
+    <div class="box box3">
+      <button>Για περισσότερες πληροφορίες παρακαλώ επικοινωνήστε τηλεφωνικά μαζί μας.</button>
+    </div>
+  </div>
+<script src="script.js"></script> <!-- Link to your JavaScript file -->
+<form id="uploadForm" enctype="multipart/form-data">
+    <input type="file" name="file" required>
+    <button type="submit">Upload File</button>
+</form>
 
 </body>
 </html>
+
