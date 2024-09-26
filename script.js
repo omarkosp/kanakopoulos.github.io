@@ -4,7 +4,7 @@ const { Storage } = require('@google-cloud/storage');
 // Create a client
 const storage = new Storage({
     projectId: 'YOUR_PROJECT_ID', // Replace with your project ID
-    keyFilename: 'PATH_TO_YOUR_JSON_KEY_FILE', // The path to your downloaded JSON key file
+    keyFilename: 'key.json',
 });
 
 // Function to upload a file to Google Cloud Storage
