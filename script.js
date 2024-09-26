@@ -1,34 +1,20 @@
-// Initialize the Google Cloud Storage client
 const { Storage } = require('@google-cloud/storage');
 
-// Create a client
+// Replace with your actual project ID
 const storage = new Storage({
-    projectId: 'YOUR_PROJECT_ID', // Replace with your project ID
-    keyFilename: 'key.json',
+    projectId: 'kanakopoulos', // Your actual Project ID
+    keyFilename: 'key.json', // The path to your JSON key file, assuming it's in the root
 });
 
-// Function to upload a file to Google Cloud Storage
+// Function to upload a file
 async function uploadFile(fileName) {
-    await storage.bucket('photoskanakopoulos').upload(fileName);
-    console.log(`${fileName} uploaded to ${YOUR_BUCKET_NAME}.`);
-}
-document.getElementById('uploadForm').addEventListener('submit', async (event) => {
-    event.preventDefault();
-    const fileInput = document.querySelector('input[type="file"]');
-    const file = fileInput.files[0];
-
-    const formData = new FormData();
-    formData.append('file', file);
-
-    // Replace 'YOUR_API_ENDPOINT' with your actual API endpoint for file upload
-    const response = await fetch('YOUR_API_ENDPOINT', {
-        method: 'POST',
-        body: formData
-    });
-
-    if (response.ok) {
-        console.log('File uploaded successfully!');
-    } else {
-        console.error('Error uploading file.');
+    try {
+        await storage.bucket('photoskanakopoulos').upload(fileName);
+        console.log(`${fileName} uploaded to photoskanakopoulos.`);
+    } catch (error) {
+        console.error('Error uploading file:', error);
     }
-});
+}
+
+// Call the upload function with the correct file path
+uploadFile('path/to/your/local/file.txt'); // Replace with your actual file path
